@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 20%;
+            background: white;
+            color: white;
+            border-spacing: 1px;
+        }
+
+        td, th {
+            background: black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <table>
+        <tr>
+            <h4></h4>
+            <td>Id</td>
+            <th th:text="${user.getId()}"></th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <th th:text="${user.getName()}">Name</th>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <th th:text="${user.getLastName()}">LastName</th>
+        </tr>
+
+    </table>
+    </th:block>
+
+
+    </th:block>
+
+</div>
+
+
+</body>
+</html>

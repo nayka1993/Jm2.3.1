@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 20%;
+            background: white;
+            color: white;
+            border-spacing: 1px;
+        }
+
+        td, th {
+            background: black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>USERS TABLE</h1>
+
+
+<th:block th:each="msg : ${listUser}">
+    <table>
+        <td><a th:href="@{/edit/{id}(id=${msg.getId()})}">Edit</a></td>
+        <td><a th:href="@{/remove/{id}(id=${msg.getId()})}">Remove</a></td>
+        <tr>
+            <h4></h4>
+            <td>ID</td>
+            <th th:text="${msg.getId()}"></th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <th th:text="${msg.getName()}">Name</th>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <th th:text="${msg.getLastName()}">LastName</th>
+        </tr>
+
+    </table>
+</th:block>
+<br/>
+<br/>
+
+
+<h3> Add User</h3>
+
+<form action="#" th:action="@{/user/add}" th:object="${user}"
+      method="post">
+    <div class="row">
+        <div class="form-group col-md-8">
+            <label for="id" class="col-form-label">FirstName</label>
+            <input type="text" th:field="*{name}" class="form-control"
+                   id="firstName" placeholder="Name"/>
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id" class="col-form-label">LastName</label>
+            <input type="text" th:field="*{lastName}" class="form-control"
+                   id="lastName" placeholder="LastName"/>
+        </div>
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-primary" value=" Submit ">
+        </div>
+
+        <input type="hidden" id="id" th:field="*{id}">
+
+    </div>
+</form>
+
+
+</body>
+</html>
